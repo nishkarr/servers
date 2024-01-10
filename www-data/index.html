@@ -28,7 +28,7 @@ window.onload = function() {
     servers.forEach(element => {
         const li = document.createElement('li');
         const link = document.createElement('a');
-        link.href = `//${hostname}:${element.port}`;
+        link.href = `http://${hostname}:${element.port}`;
         link.textContent = element.name;
         li.append(link);
         list.append(li);
