@@ -59,7 +59,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro  # Replace with your Nginx configuration path
+      - ./nginx.conf:/etc/nginx/nginx.conf:Z # see https://stackoverflow.com/questions/35218194/what-is-z-flag-in-docker-containers-volumes-from-option
       - ./www-data:/www-data
 
 volumes:
