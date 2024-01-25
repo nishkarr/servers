@@ -68,10 +68,30 @@ services:
       - rabbitmq
       - redis-commander
 
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${DB_USER}
+      PGADMIN_DEFAULT_PASSWORD: ${DB_PASS}
+    ports:
+      - "8082:80"
+
 volumes:
   rabbitmq-data:
   mysql-data:
   redis-data:
+  postgres_data:
 
 # - - - 
 # .env
